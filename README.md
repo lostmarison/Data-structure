@@ -8,3 +8,5 @@
 [2.1 顺序栈](/Stack&Queue/SeqStack.cpp)  
 [2.2 链栈](/Stack&Queue/LinkStack.md)  
 [2.3 循环队列](/Stack&Queue/CirQueue.md)  
+#### Tree
+[3.1二叉树](Tree/BiTree.cpp)  
