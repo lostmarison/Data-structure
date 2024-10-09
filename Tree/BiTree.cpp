@@ -45,7 +45,8 @@ TreeNode<T>* BiTree<T>::Creat() {
     return bt;
 }
 
-template <typename T> void BiTree<T>::Release(TreeNode<T>* bt) {
+template <typename T> 
+void BiTree<T>::Release(TreeNode<T>* bt) {
     if (bt == nullptr) {
         return;
     } else {
@@ -55,7 +56,8 @@ template <typename T> void BiTree<T>::Release(TreeNode<T>* bt) {
     }
 }
 
-template <typename T> void BiTree<T>::PreOrder(TreeNode<T>* bt) {
+template <typename T> 
+void BiTree<T>::PreOrder(TreeNode<T>* bt) {
     if (bt == nullptr) {
         return;
     } else {
@@ -65,7 +67,8 @@ template <typename T> void BiTree<T>::PreOrder(TreeNode<T>* bt) {
     }
 }
 
-template <typename T> void BiTree<T>::InOrder(TreeNode<T>* bt) {
+template <typename T> 
+void BiTree<T>::InOrder(TreeNode<T>* bt) {
     if (bt == nullptr) {
         return;
     } else {
@@ -75,7 +78,8 @@ template <typename T> void BiTree<T>::InOrder(TreeNode<T>* bt) {
     }
 }
 
-template <typename T> void BiTree<T>::PostOrder(TreeNode<T>* bt) {
+template <typename T> 
+void BiTree<T>::PostOrder(TreeNode<T>* bt) {
     if (bt == nullptr) {
         return;
     } else {
