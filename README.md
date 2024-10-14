@@ -9,4 +9,5 @@
 [2.2 链栈](/Stack&Queue/LinkStack.md)  
 [2.3 循环队列](/Stack&Queue/CirQueue.md)  
 #### Tree
-[3.1二叉树](Tree/BiTree.cpp)  
+[3.1二叉树](Tree/BiTree1.cpp)  
+[3.1.2二叉树相关算法](Tree/BiTree2.cpp)
