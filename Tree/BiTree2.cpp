@@ -54,14 +54,60 @@ vector<T> addLeafNodes(TreeNode<T>* root) {
         return A;
     }
     // 使用队列进行层次遍历
-    queue<TreeNode<T>*> q;
-    q.push(root);
+    queue<TreeNode<T>*> q;  // 定义队列
+    q.push(root);           // 根结点入队
     while (!q.empty()) {
-        TreeNode<T>* node = q.front();
-        q.pop();
+        TreeNode<T>* node = q.front();  // 取出队列首元素
+        q.pop();                        // 队列首元素出队
+        // 如果该结点为叶结点
         if (node->left == nullptr && node->right == nullptr) {
-            A.push_back(node->data);
+            A.push_back(node->data);  // 叶结点入队
+        } else {                      // 非叶节点，加入队列继续遍历
+            if (node->left != nullptr) {  // 左孩子存在
+                q.push(node->left);       // 左孩子入队
+            }
+            if (node->right != nullptr) {  // 右孩子存在
+                q.push(node->right);       // 右孩子入队
+            }
+        }
+    }
+    return A;
+}
+
+/*6.编写算法把二叉树的叶结点按从左到右的顺序连成一个单链表，表头指针为first。
+二叉树按二叉链表方式存储，链接时用叶结点的右指针域来存放单链表指针。*/
+template <typename T>
+TreeNode<T>* connectLeafNodes(TreeNode<T>* root) {
+    if (root == nullptr) {
+        return nullptr;
+    }
+    // 使用队列进行层次遍历
+    queue<TreeNode<T>*> q;  // 定义队列
+    q.push(root);           // 根结点入队
+
+    TreeNode<T>* first = nullptr;  // 链表头指针
+    TreeNode<T>* end = nullptr;    // 链表末尾指针
+
+    while (!q.empty()) {
+        TreeNode<T>* node = q.front();  // 取出队首元素
+        q.pop();                        // 队列首元素出队
+        // 如果该节点是叶节点
+        if (node->left == nullptr && node->right == nullptr) {
+            // 如果是第一个叶节点，则它也是链表的头
+            if (first == nullptr) {
+                first = node;
+                end = node;
+                // 叶节点的right指针用于连接链表，初始时设为nullptr（即不指向其他节点）
+                end->right = nullptr;
+            } else {  // 否则，将前一个叶节点的right指针指向当前叶节点
+
+                end->right = node;
+                end = node;
+                // 更新链表的末尾节点的right指针为nullptr
+                end->right = nullptr;
+            }
         } else {
+            // 非叶节点，加入队列继续遍历
             if (node->left != nullptr) {
                 q.push(node->left);
             }
@@ -70,5 +116,6 @@ vector<T> addLeafNodes(TreeNode<T>* root) {
             }
         }
     }
-    return A;
+
+    return first;
 }
