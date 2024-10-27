@@ -44,9 +44,28 @@ void Mgraph<T>::DFTraverse(int v) {
     }
 }
 
+template <typename T>
+void Mgraph<T>::BFTraverse(int v) {
+    queue<int> q; // 创建队列
+    cout << vertex[v] << " ";
+    visited[v] = 1; 
+    q.push(v); // 被访问顶点入队
+    while (!q.empty()) { // 当队列非空时
+        int current = q.front(); // 记录队头元素
+        q.pop(); // 队头元素出队
+        for (int j = 0; j < vertexNum; ++j) {
+            if (edge[current][j] && visited[j] == 0) {
+                cout << vertex[j] << " ";
+                visited[j] = 1;
+                q.push(j);
+            }
+        }
+    }
+}
+
 int main() {
     vector<char> ch = {'A', 'B', 'C', 'D', 'E'};
-    Mgraph<char> MG(ch, 5, 8);  // 假设只有4条边作为示例
+    Mgraph<char> MG(ch, 5, 4); 
     cout << "DFS traversal starting from vertex 0 (A): ";
     MG.DFTraverse(0);
     cout << endl;
