@@ -1,3 +1,4 @@
+```py
 from collections import deque
 import numpy as np
 import networkx as nx
@@ -56,3 +57,5 @@ if __name__ == "__main__":
     G = nx.from_numpy_array(A)
     nx.draw(G, node_size=500, with_labels=True)
     plt.show()
+```
+![image](https://github.com/user-attachments/assets/db46aceb-b7a0-43bd-a26f-da4c83eb0e13)
