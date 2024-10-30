@@ -1,5 +1,3 @@
-![LevelOrder](https://github.com/user-attachments/assets/66d7b87e-670d-476c-bcaf-512465d5dcc2)
-```c++
 #include <deque>
 #include <iostream>
 using namespace std;
@@ -111,4 +109,3 @@ void BiTree<T>::LevelOrder() {
         }
     }
 }
-```
